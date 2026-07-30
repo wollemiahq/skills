@@ -1,0 +1,21 @@
+Third-party material
+====================
+
+skills/performance-hints
+------------------------
+
+Condensed and restructured from "Performance Hints" by Jeffrey Dean and Sanjay
+Ghemawat (2025), published at https://abseil.io/fast/hints.html and sourced from
+https://github.com/abseil/abseil.github.io, which is licensed under the Apache
+License, Version 2.0.
+
+    Copyright The Abseil Authors
+    Licensed under the Apache License, Version 2.0
+    http://www.apache.org/licenses/LICENSE-2.0
+
+The skill is our own arrangement — a step-based process, a routing table, and
+reference files organised for agent use — but the techniques, benchmark figures,
+and worked examples it records are theirs. Suggested citation for the original:
+
+    Jeffrey Dean & Sanjay Ghemawat, Performance Hints, 2025,
+    https://abseil.io/fast/hints.html

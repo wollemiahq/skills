@@ -1,0 +1,23 @@
+{
+  "name": "wollemia-skills",
+  "version": "0.1.0",
+  "description": "Agent skills we run every day building Cavuno — starting with performance-hints, a routed catalogue for making code faster, smaller and leaner.",
+  "author": {
+    "name": "Wollemia",
+    "url": "https://cavuno.com"
+  },
+  "homepage": "https://github.com/wollemiahq/skills",
+  "repository": "https://github.com/wollemiahq/skills",
+  "license": "MIT",
+  "keywords": [
+    "engineering",
+    "skills",
+    "performance",
+    "optimization",
+    "profiling",
+    "benchmarking"
+  ],
+  "skills": [
+    "./skills/performance-hints"
+  ]
+}

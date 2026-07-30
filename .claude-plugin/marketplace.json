@@ -1,0 +1,23 @@
+{
+  "name": "wollemia",
+  "owner": {
+    "name": "Wollemia",
+    "url": "https://cavuno.com"
+  },
+  "description": "Wollemia's agent skills, as an installable Claude Code plugin.",
+  "plugins": [
+    {
+      "name": "wollemia-skills",
+      "source": "./",
+      "description": "Agent skills we run every day building Cavuno — starting with performance-hints, a routed catalogue for making code faster, smaller and leaner.",
+      "category": "engineering",
+      "keywords": [
+        "engineering",
+        "skills",
+        "performance",
+        "optimization",
+        "profiling"
+      ]
+    }
+  ]
+}
