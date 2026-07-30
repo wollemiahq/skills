@@ -1,8 +1,8 @@
-# Wollemia Skills
+# Cavuno Skills
 
 Agent skills we actually run, published as we sharpen them.
 
-We build [Cavuno](https://cavuno.com) with coding agents every day. This repo is where the skills we wrote ourselves get published — not a re-hosting of anyone else's set. It starts small on purpose: a skill only lands here once it has earned its keep in real work.
+We're [Cavuno](https://cavuno.com) — job board and careers page software. We build it with coding agents every day, and this repo is where the skills we wrote ourselves get published — not a re-hosting of anyone else's set. It starts small on purpose: a skill only lands here once it has earned its keep in real work.
 
 Skills are plain markdown. They work with Claude Code, Codex, Cursor, opencode, and anything else that reads `SKILL.md`.
 
@@ -15,7 +15,7 @@ Two routes, two philosophies. The **Claude Code plugin** installs the set as a m
 
 ```
 /plugin marketplace add wollemiahq/skills
-/plugin install wollemia-skills@wollemia
+/plugin install cavuno-skills@cavuno
 ```
 
 </details>
@@ -49,6 +49,15 @@ A skill exists to get determinism out of a stochastic system — the agent takin
 - **Prompt the positive.** Naming the banned behaviour makes it more available, not less.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) to add one.
+
+## Made by Cavuno
+
+[Cavuno](https://cavuno.com) is job board and careers page software. If you build with agents, the pieces you can point one at:
+
+- [cavuno-mcp](https://github.com/wollemiahq/cavuno-mcp) — connect Claude, Cursor, Codex and other MCP clients to your board
+- [cavuno-sdk](https://github.com/wollemiahq/cavuno-sdk) — TypeScript SDK for custom boards and careers pages
+- [cavuno-cli](https://github.com/wollemiahq/cavuno-cli) — manage your board from the command line
+- [cavuno-api](https://github.com/wollemiahq/cavuno-api) — the OpenAPI contract
 
 ## Licence
 
