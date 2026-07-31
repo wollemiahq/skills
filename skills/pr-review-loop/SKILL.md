@@ -52,6 +52,8 @@ A repo instruction the diff breaks, cited by file and line, counts as a scenario
 
 Everything else is an **advisory**: possibly real, but undemonstrated. Advisories go in the final summary rather than driving the loop. Drop findings that are stale, relitigate a previous rejection, or guard an impossible state.
 
+Judge the fix as well as the finding. A **contrived** scenario, or a remedy that costs more to live with than the problem does, is better recorded than applied.
+
 ```markdown
 | # | Source | Finding | Failure scenario — blank means advisory |
 |---|--------|---------|------------------------------------------|

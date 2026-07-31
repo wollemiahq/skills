@@ -31,6 +31,8 @@ Each smell pairs with the remedy that deletes it rather than rearranging it.
 
 Prefer few high-conviction findings to a long list. Each one names the structural problem, points to a file and line, says why the shape is harder to reason about, and proposes a concrete restructuring.
 
+Say what a remedy costs as well as what it buys — triage weighs the two against each other.
+
 Structural findings rarely carry a failure scenario, so triage will usually file them as advisories for a human rather than fixing them in the loop. Report them anyway — the summary is where they land.
 
 Return findings to the triage step; keep them out of the PR comments.
