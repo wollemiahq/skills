@@ -1,7 +1,7 @@
 {
   "name": "cavuno-skills",
   "version": "0.1.0",
-  "description": "Agent skills we run every day building Cavuno — starting with performance-hints, a routed catalogue for making code faster, smaller and leaner.",
+  "description": "Agent skills we run every day building Cavuno — a routed performance catalogue, and a PR review loop that only fixes what it can demonstrate.",
   "author": {
     "name": "Cavuno",
     "url": "https://cavuno.com"
@@ -15,9 +15,11 @@
     "performance",
     "optimization",
     "profiling",
-    "benchmarking"
+    "code-review",
+    "pull-requests"
   ],
   "skills": [
-    "./skills/performance-hints"
+    "./skills/performance-hints",
+    "./skills/pr-review-loop"
   ]
 }

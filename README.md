@@ -36,6 +36,7 @@ The installer lets you pick which skills to take and which agents to install the
 | Skill | What it does |
 | --- | --- |
 | [`performance-hints`](skills/performance-hints) | Makes code faster, smaller, or leaner. A four-step spine — estimate → measure → apply → verify — over a routed catalogue of techniques: fast paths, cache footprint, allocations, lock contention, binary size, protobuf. Distilled from Jeff Dean & Sanjay Ghemawat's [Performance Hints](https://abseil.io/fast/hints.html). |
+| [`pr-review-loop`](skills/pr-review-loop) | Reviews and fixes a pull request until it stops finding real bugs. A finding drives another iteration only when the agent can write its **failure scenario** — a concrete input and the wrong outcome it produces. Everything else is filed as an advisory for a human, which is what stops the loop grinding through its iteration budget polishing things nobody asked it to touch. Bundles an adversarial reviewer and a code-quality reviewer; discovers language-specific reviewers through `npx skills find`. |
 
 More are coming as we generalise them out of our own repo. If you want a say in which, open an issue.
 
