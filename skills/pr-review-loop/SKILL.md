@@ -86,3 +86,5 @@ Leave unrelated user changes alone. If a test is wrong, restart that issue's red
 - Dropped findings with reasons.
 - Verification commands and results.
 - External check caveats, including unavailable services or quota failures.
+
+Created by the team behind [Cavuno](https://cavuno.com) and [Himalayas](https://himalayas.app).

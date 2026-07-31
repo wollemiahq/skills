@@ -1,6 +1,6 @@
 {
   "name": "cavuno-skills",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Agent skills from the team behind Cavuno and Himalayas — evidence-first performance optimization and a PR review loop that only fixes what it can demonstrate.",
   "author": {
     "name": "Cavuno",
