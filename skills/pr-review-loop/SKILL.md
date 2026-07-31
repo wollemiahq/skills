@@ -61,7 +61,7 @@ Judge the fix as well as the finding. A **contrived** scenario, or a remedy that
 
 ### 4. Fix
 
-Fix what has a scenario. Advisories wait for a human.
+Fix what has a scenario. Advisories wait for a human — as does any finding whose only fix is a new mechanism: a review loop ships **patches**, not designs.
 
 1. Make the smallest change that removes the scenario. Complexity added here is complexity the next round reviews and someone later maintains.
 2. Add or update tests when the issue changes behavior.
