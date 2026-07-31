@@ -1,8 +1,8 @@
 Third-party material
 ====================
 
-skills/performance-hints
-------------------------
+skills/optimize-performance
+---------------------------
 
 Condensed and restructured from "Performance Hints" by Jeffrey Dean and Sanjay
 Ghemawat (2025), published at https://abseil.io/fast/hints.html and sourced from
@@ -13,9 +13,10 @@ License, Version 2.0.
     Licensed under the Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
 
-The skill is our own arrangement — a step-based process, a routing table, and
-reference files organised for agent use — but the techniques, benchmark figures,
-and worked examples it records are theirs. Suggested citation for the original:
+The skill is our own arrangement — a causal experiment loop, conditional
+references, and evaluation cases organised for agent use — but the techniques,
+historical benchmark figures, and adapted examples it records are theirs.
+Suggested citation for the original:
 
     Jeffrey Dean & Sanjay Ghemawat, Performance Hints, 2025,
     https://abseil.io/fast/hints.html

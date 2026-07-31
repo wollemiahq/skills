@@ -1,7 +1,7 @@
 {
   "name": "cavuno-skills",
-  "version": "0.1.0",
-  "description": "Agent skills we run every day building Cavuno — a routed performance catalogue, and a PR review loop that only fixes what it can demonstrate.",
+  "version": "0.2.0",
+  "description": "Agent skills from the team behind Cavuno and Himalayas — evidence-first performance optimization and a PR review loop that only fixes what it can demonstrate.",
   "author": {
     "name": "Cavuno",
     "url": "https://cavuno.com"
@@ -19,7 +19,7 @@
     "pull-requests"
   ],
   "skills": [
-    "./skills/performance-hints",
+    "./skills/optimize-performance",
     "./skills/pr-review-loop"
   ]
 }
