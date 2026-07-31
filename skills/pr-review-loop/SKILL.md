@@ -52,7 +52,7 @@ A repo instruction the diff breaks, cited by file and line, counts as a scenario
 
 Everything else is an **advisory**: possibly real, but undemonstrated. Advisories go in the final summary rather than driving the loop. Drop findings that are stale, relitigate a previous rejection, or guard an impossible state.
 
-Judge the fix as well as the finding. A **contrived** scenario, or a remedy that costs more to live with than the problem does, is better recorded than applied.
+Judge the fix as well as the finding. If they propose a fix, don't take it at face value; there's often a **KISS** solution that avoids overcomplicating things. A **contrived** scenario, or a remedy that costs more to live with than the problem does, is better recorded than applied.
 
 ```markdown
 | # | Source | Finding | Failure scenario — blank means advisory |
@@ -78,6 +78,7 @@ Leave unrelated user changes alone. If a test is wrong, restart that issue's red
 ### 5. Exit
 
 - Stop when an iteration produces no scenarios, and report `All clean -- N advisories recorded`. An iteration counts as clean only once the reviewers have re-run against the current `HEAD` and every review-bot check for that commit has completed.
+- When a round's findings are mostly regressions in the previous round's fix, the fix is the problem, not the code it touched. Revert it, record what it was trying to solve, and hand it over.
 - If iteration 4 still has scenarios, fix them, verify, commit, push, then stop and report `Max iterations reached`.
 - Close any subagents opened for the loop.
 
