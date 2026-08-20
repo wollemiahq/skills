@@ -65,6 +65,8 @@ Fix what has a scenario. Advisories wait for a human.
 
 A review loop ships **patches**, not designs. If a finding needs a new mechanism, or reaches beyond the surface of this PR, bring it up with the human as a new PR.
 
+The pull toward adding is the failure mode to watch: an extra guard here, a defensive fallback there, a constant, a counter, a restored comment — each defensible alone, together a bigger diff than the bug deserved. Fixing a scenario is not an invitation to harden around it; anything not needed to remove the failure or defend it with a test stays an advisory, however cheap it looks in the moment. When a patch grows past the finding it fixes, stop and cut.
+
 1. Make the smallest change that removes the scenario. Complexity added here is complexity the next round reviews and someone later maintains.
 2. Add or update tests when the issue changes behavior.
 3. Run focused tests first.
