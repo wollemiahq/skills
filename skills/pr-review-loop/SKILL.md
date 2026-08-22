@@ -7,6 +7,16 @@ description: Run a bounded review-and-fix loop on a pull request, fixing only fi
 
 Review and fix the open pull request on the current branch, up to 4 iterations. A finding drives the loop only when it carries a **failure scenario**; everything else is recorded as an advisory for a human.
 
+## Principles
+
+**Do not overcode.** The strong tendency is to fix more than the finding needs. An extra guard, an extra constant, an extra defensive path. Each one looks cheap on its own. Together they are a bigger diff than the bug deserved, and they carry new bugs of their own.
+
+**KISS.** The simplest change that removes the failure is the correct change. If a fix keeps growing, the finding was probably an advisory.
+
+**Know the constraints before you touch the code.** Read the whole function, not the lines the finding points at. List the rules it must keep — bounds, ordering, auth scope, page size, anything a caller depends on. Fix against that list, not against the finding alone.
+
+**Check the whole context after the fix.** A fix that works at the reported line and breaks a sibling branch is not a fix. It is the next round's finding.
+
 ## Prerequisites
 
 1. Confirm the branch has an open PR with `gh pr view --json number,url,headRefOid`.
@@ -69,17 +79,20 @@ Judge the fix as well as the finding. If they propose a fix, don't take it at fa
 
 Fix what has a scenario. Advisories wait for a human.
 
+Two findings in one round can ask for opposite things. If a fix would break a rule an earlier fix established, stop — you cannot satisfy both. Say so, keep the one with the real failure scenario, and record the other as an advisory.
+
 A review loop ships **patches**, not designs. If a finding needs a new mechanism, or reaches beyond the surface of this PR, bring it up with the human as a new PR.
 
 The pull toward adding is the failure mode to watch: an extra guard here, a defensive fallback there, a constant, a counter, a restored comment — each defensible alone, together a bigger diff than the bug deserved. Fixing a scenario is not an invitation to harden around it; anything not needed to remove the failure or defend it with a test stays an advisory, however cheap it looks in the moment. When a patch grows past the finding it fixes, stop and cut.
 
 1. Make the smallest change that removes the scenario. Complexity added here is complexity the next round reviews and someone later maintains.
 2. Add or update tests when the issue changes behavior.
-3. Run focused tests first.
-4. Run touched-file lint/format checks.
-5. Run broader verification when practical; report unrelated failures or skipped checks.
-6. Commit with `Address review feedback (iteration N)` or a more specific message.
-7. Push the branch.
+3. Re-check every rule on your list, across the whole function. Does it still hold on the other branches? The early returns? The paths the finding never mentioned? Fixing the reported case and missing a sibling path is the most common way a fix becomes the next finding.
+4. Run focused tests first.
+5. Run touched-file lint/format checks.
+6. Run broader verification when practical; report unrelated failures or skipped checks.
+7. Commit with `Address review feedback (iteration N)` or a more specific message.
+8. Push the branch.
 
 Leave unrelated user changes alone. If a test is wrong, restart that issue's red/green loop rather than editing the test to pass.
 
