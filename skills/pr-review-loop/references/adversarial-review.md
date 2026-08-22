@@ -13,10 +13,28 @@ For each axis, construct the concrete input, state, sequence, tenant, or runtime
 1. **Correctness vs intent** — shortcuts, half-implementations, stubs, TODO branches, dropped edge cases, wrong conditionals, mishandled empty values, and error paths that swallow or mis-propagate failures.
 2. **Authorization** — the path by which one user, tenant, or organisation reads or writes another's data, or reaches an endpoint or action unauthenticated: a missing scope check, a client-supplied identifier the server trusts, a mutation that never re-checks ownership.
 3. **Data layer** — full scans where an index is required, missing or wrong indexes, N+1 reads, unbounded reads, races between concurrent writes, non-idempotent mutations, schema/validator mismatches. Read the data layer's own guidelines first where it ships them; Convex generates them at `convex/_generated/ai/guidelines.md`.
-4. **Framework and types** — client/server boundary violations, invalid server-action exports, mutations bypassing the repo's action wrapper, forms ignoring repo conventions, hidden type holes, `any`, orphaned code, dead branches.
-5. **Input and secrets** — unvalidated input reaching a sink, leaked secrets, webhook double-processing, billing and order-of-operations failures.
-6. **Reliability** — timeout, retry, partial-write, migration/backfill, replay, duplicate, and recovery sequences that leave bad or orphaned state.
-7. **Tests** — whether the tests actually defend the new behaviour. Missing tests, assertions that would still pass if the behaviour broke, untested edge cases that matter to the change.
+4. **Resource amplification** — one call does the correct amount of work, but the code runs that call too many times. Examples: a scan inside a loop, one scheduled task per row, a cascade that repeats the same work for each item.
+
+   Find every loop, cascade, migration, backfill, and scheduled fan-out that the diff adds or changes. For each one, calculate this and put the numbers in the finding:
+
+   `rows read per call  ×  calls per run  ×  runs per day  =  work per day`
+
+   Give the result in the unit the platform charges for. Examples: bytes read, function calls, requests, compute seconds.
+
+   Report a finding if any one of these is true:
+   - One of the three numbers has no upper limit.
+   - The code reads the same table more than one time to complete one logical operation.
+   - The work per day is large.
+
+   Two arguments look correct but do not close this finding:
+   - *"The scan is necessary."* Often true, and not the point. The problem is the number of repeats, not the scan. One pass over the whole batch usually replaces N separate passes.
+   - *"One call is cheap."* Also often true today. The table grows, so use the expected future size of the table in the calculation, not the size today. This class of defect usually costs nothing on the day it merges.
+
+   Some platforms charge for these units directly. Convex charges for database bandwidth and for function calls. Most serverless platforms and managed databases charge in a similar way. On these platforms, code that multiplies the work is a cost defect, even when the code is fast and correct.
+5. **Framework and types** — client/server boundary violations, invalid server-action exports, mutations bypassing the repo's action wrapper, forms ignoring repo conventions, hidden type holes, `any`, orphaned code, dead branches.
+6. **Input and secrets** — unvalidated input reaching a sink, leaked secrets, webhook double-processing, billing and order-of-operations failures.
+7. **Reliability** — timeout, retry, partial-write, migration/backfill, replay, duplicate, and recovery sequences that leave bad or orphaned state.
+8. **Tests** — whether the tests actually defend the new behaviour. Missing tests, assertions that would still pass if the behaviour broke, untested edge cases that matter to the change.
 
 ## Reporting
 

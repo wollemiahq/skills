@@ -48,7 +48,13 @@ A finding drives the loop only when you can write its **failure scenario** — a
 
 > An account with no active membership hits the admin route and gets a 500 instead of a 403.
 
-A repo instruction the diff breaks, cited by file and line, counts as a scenario. A reviewer's own severity label does not — that is a claim made without sight of the whole PR. Apply the test yourself.
+A resource calculation is also a scenario, if you show the numbers and the result is large. Here the wrong outcome is the cost, not a crash:
+
+> The nightly janitor merges 300 duplicate skills on a board with 40,000 jobs. Each rename reads the whole jobs table again. So one run reads about 58 GB instead of about 0.2 GB.
+
+A repo instruction that the diff breaks is also a scenario. Cite the file and the line.
+
+A severity label from a reviewer is not a scenario. The reviewer wrote that label without seeing the whole PR. Cost findings arrive with a low label most often, because the cost of one call looks small. Apply the test yourself.
 
 Everything else is an **advisory**: possibly real, but undemonstrated. Advisories go in the final summary rather than driving the loop. Drop findings that are stale, relitigate a previous rejection, or guard an impossible state.
 
