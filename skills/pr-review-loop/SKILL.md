@@ -38,6 +38,8 @@ Run both of these against every changed file:
 - [`references/adversarial-review.md`](references/adversarial-review.md) — correctness, authorization, security, reliability, tests.
 - [`references/code-quality-review.md`](references/code-quality-review.md) — structure, abstraction, layering, simplification.
 
+Also run the **`code-review` skill** when it is installed in this session or repo. Pin its fixed point to the PR base. Its Standards axis reads `CODING_STANDARDS.md` and the other sources the skill already lists; its Spec axis reads the PR body and any linked issue. The two reports land in triage with the others. If the skill is not installed, skip it and say so — do not search for or install it.
+
 Then add stack-specific review for the languages and frameworks the diff actually touches:
 
 1. **Use what is already installed.** A matching skill in this session or repo is the first choice — React/Next.js diffs want `vercel-react-best-practices`; Convex diffs want `convex-rules` plus the repo's generated `convex/_generated/ai/guidelines.md`.
