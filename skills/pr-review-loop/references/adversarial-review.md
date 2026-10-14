@@ -15,9 +15,11 @@ For each axis, construct the concrete input, state, sequence, tenant, or runtime
 3. **Data layer** — full scans where an index is required, missing or wrong indexes, N+1 reads, unbounded reads, races between concurrent writes, non-idempotent mutations, schema/validator mismatches. Read the data layer's own guidelines first where it ships them; Convex generates them at `convex/_generated/ai/guidelines.md`.
 4. **Resource amplification** — one call does the correct amount of work, but the code runs that call too many times. Examples: a scan inside a loop, one scheduled task per row, a cascade that repeats the same work for each item.
 
-   Find every loop, cascade, migration, backfill, and scheduled fan-out that the diff adds or changes. For each one, calculate this and put the numbers in the finding:
+   Find every loop, cascade, migration, backfill, and scheduled fan-out that the diff adds or changes. Also find every read the diff adds to a request path (a page, an API endpoint, a handler that runs per visit): there the loop is the traffic. For each one, calculate this and put the numbers in the finding:
 
-   `rows read per call  ×  calls per run  ×  runs per day  =  work per day`
+   `bytes read per call  ×  calls per run  ×  runs per day  =  work per day`
+
+   Use bytes, not rows: one read of a large document (a settings or configuration record, a row with a big JSON field) can cost more than many reads of small ones. Take the call volume from the platform's metrics or logs where you can reach them, and say so when you estimate it.
 
    Give the result in the unit the platform charges for. Examples: bytes read, function calls, requests, compute seconds.
 
@@ -29,6 +31,7 @@ For each axis, construct the concrete input, state, sequence, tenant, or runtime
    Two arguments look correct but do not close this finding:
    - *"The scan is necessary."* Often true, and not the point. The problem is the number of repeats, not the scan. One pass over the whole batch usually replaces N separate passes.
    - *"One call is cheap."* Also often true today. The table grows, so use the expected future size of the table in the calculation, not the size today. This class of defect usually costs nothing on the day it merges.
+   - *"It's only one read per request."* Count it per request, then multiply by requests per day. One extra read of a large document on a high-traffic path can cost more per day than an N+1 inside a rarely called batch. If the read needs only a few fields, a small dedicated record holding just those fields usually removes the cost.
 
    Some platforms charge for these units directly. Convex charges for database bandwidth and for function calls. Most serverless platforms and managed databases charge in a similar way. On these platforms, code that multiplies the work is a cost defect, even when the code is fast and correct.
 5. **Framework and types** — client/server boundary violations, invalid server-action exports, mutations bypassing the repo's action wrapper, forms ignoring repo conventions, hidden type holes, `any`, orphaned code, dead branches.
