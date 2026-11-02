@@ -43,6 +43,7 @@ npx skills@latest add wollemiahq/skills --skill optimize-performance
 | --- | --- |
 | [`optimize-performance`](skills/optimize-performance) | Treats performance work as a causal experiment: define the contract, localize the dominant cost, change one mechanism, and verify the result. Covers latency, throughput, CPU, memory, allocations, code size, and contention, with historical cost data and worked examples clearly qualified. Adapted from Jeff Dean & Sanjay Ghemawat's [Performance Hints](https://abseil.io/fast/hints.html). |
 | [`pr-review-loop`](skills/pr-review-loop) | Reviews and fixes a pull request until it stops finding real bugs. A finding drives another iteration only when the agent can write its **failure scenario** — a concrete input and the wrong outcome it produces. Everything else is filed as an advisory for a human, which is what stops the loop grinding through its iteration budget polishing things nobody asked it to touch. Bundles an adversarial reviewer and a code-quality reviewer; runs the installed `code-review` skill (Standards vs Spec) when present; discovers language-specific reviewers through `npx skills find`. |
+| [`progress`](skills/progress) | A status update on the current task, checked against live state first: done, in progress, to do, what needs you, and how close the task is to done. Edge-case follow-ups that will never be hit stay out of the definition of done. |
 
 More are coming as we generalise them out of our own repo. If you want a say in which, open an issue.
 

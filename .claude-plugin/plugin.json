@@ -20,6 +20,7 @@
   ],
   "skills": [
     "./skills/optimize-performance",
-    "./skills/pr-review-loop"
+    "./skills/pr-review-loop",
+    "./skills/progress"
   ]
 }
