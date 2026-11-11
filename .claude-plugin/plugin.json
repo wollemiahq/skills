@@ -21,6 +21,7 @@
   "skills": [
     "./skills/optimize-performance",
     "./skills/pr-review-loop",
-    "./skills/progress"
+    "./skills/progress",
+    "./skills/panel"
   ]
 }
