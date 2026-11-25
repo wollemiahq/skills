@@ -16,14 +16,14 @@ Done when: one sentence names the decision and the field(s). Ask one question on
 
 ## 2. Find the leaders
 
-Pick 3 to 5 people who both **did the work** at a serious scale and **changed how the field thinks** (frameworks, essays, books others argue from). Prefer the unusual, sharp voices over the merely famous. Use web search to confirm each person's current role, since your training data may be stale.
+Pick 3 to 5 **practitioners**: people with an outsized, verifiable track record in the field who also changed how it thinks (frameworks, essays, books others argue from). The bar is Jeff Dean at Google or the people who built Shopify: their own results prove their method. A commentator, consultant, speaker or author whose main output is talk does not qualify, however famous, and neither does a side venture nobody has heard of. Prefer the unusual, sharp voices over the merely famous. Use web search to confirm each person's current role and track record, since your training data may be stale.
 
 For each leader, record:
-- **Credential:** what they built or ran, in one line.
+- **Track record:** what they built or ran and the concrete outcome, with a number where one exists (users, revenue, scale, a standard the field adopted), verified by search.
 - **Signature ideas:** 3 or more named concepts, frameworks or essays that are theirs or that they argue from.
 - **Stance:** a consensus take they'd reject, and why.
 
-Done when: every leader has a verified credential, at least 3 real signature ideas, and a stance. Drop anyone you can't fill in honestly.
+Done when: every leader has a verified track record with a concrete outcome, at least 3 real signature ideas, and a stance. Drop anyone whose record is mainly content or consulting, or that you can't verify. If fewer than 3 remain, say so rather than padding the list.
 
 ## 3. Extract the register
 
@@ -50,7 +50,7 @@ Done when: every workstream names at least one real framework or mechanism, ever
 
 ## Output
 
-- The leaders: one line each (name, credential, why they're here).
+- The leaders: one line each (name, track record, why they're here).
 - The prompt, in a single fenced code block, ready to paste.
 - One line naming the reference points the prompt leans on, so the user knows where the depth comes from.
 
